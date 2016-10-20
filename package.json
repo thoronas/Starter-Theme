@@ -1,0 +1,20 @@
+{
+    "name" : "SampleGrunt",
+    "version" : "0.1.0",
+    "author" : "Flynn O'Connor",
+ 	"repository": {
+		"type": "git",
+		"url": "https://github.com/thoronas/grunt-starter.git"
+	},
+
+    "devDependencies" : {
+        "grunt" 				: "~0.4.0",
+		"grunt-autoprefixer" 	: "^0.7.3",
+		"grunt-contrib-sass" 	: "^0.8.1",
+		"grunt-contrib-watch" 	: "^0.6.1",
+		"grunt-contrib-cssmin"  : ">=0.13.0",
+		"grunt-contrib-concat"  : ">=0.5.1",
+		"grunt-csscomb"			: ">=2.0.1",
+		"grunt-notify"			: "~0.4.1"
+    }
+}
