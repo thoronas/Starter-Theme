@@ -3,22 +3,22 @@
 // 2. Grid Mixins
 // 3. CSS Ready Mixins and Classes
 // 4. Internet Explorer 8 Fallbacks
- 
+
  // ----- Grid Variables
 // ---------------------
-$max-width: 1200px;
+$max-width: 1370px;
 $width: 100%;
 $columns: 12;
 $block-grids: 6;
 $max-inline-blocks: 4;
-$gutter: 15px;
- 
+$gutter: 20px;
+
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
- 
+
  // ---------------- Overview
 // --------------------------
 
@@ -74,7 +74,7 @@ $gutter: 15px;
 		@include row(nested);
 	}
 }
- 
+
 
  // ---------------------- Columns
 // -------------------------------
@@ -86,7 +86,7 @@ $gutter: 15px;
 	padding-left: $gutter;
 	width: $width / ($columns / $number);
 }
- 
+
 @mixin resized-columns($number,$columns:$columns) {
 	// this mixin's intended use is for media queries; it results in less repeated css
 	width: $width / ($columns / $number);
@@ -134,7 +134,7 @@ $gutter: 15px;
 	position: relative;
 	right: $width / ($columns / $offset);
 }
- 
+
 @mixin shift-right($offset:1) {
 	position: relative;
 	left: $width / ($columns / $offset);
@@ -144,12 +144,12 @@ $gutter: 15px;
 @mixin shift-left-class($offset:1) {
 	right: $width / ($columns / $offset);
 }
- 
+
 @mixin shift-right-class($offset:1) {
 	left: $width / ($columns / $offset);
 }
 
-[class*="right-"], 
+[class*="right-"],
 [class*="left-"] {
 	position: relative
 }
@@ -196,7 +196,7 @@ $gutter: 15px;
 		}
 	}
 }
- 
+
 @mixin block-reset($up:2){
 	// this mixin's intended use is for media queries; it resets the clear: both on the nth of type
 	// then use the main block grid mixin again within the media query to change its 'up' value

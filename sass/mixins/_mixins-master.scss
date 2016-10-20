@@ -28,6 +28,12 @@
 	font-style: $style;
 	font-weight: $weight;
 }
+@mixin mrs-eaves($weight:400, $style:normal){
+	// 400, 600, 700
+	font-family: mrs-eaves, sans-serif;
+	font-style: $style;
+	font-weight: $weight;
+}
 @mixin button(){
 	@include proxima();
 	font-weight: 800;

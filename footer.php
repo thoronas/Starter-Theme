@@ -14,10 +14,24 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'crew-theme' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'crew-theme' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'crew-theme' ), 'crew-theme', '<a href="http://underscores.me/" rel="designer">Flynn O\'Connor</a>' ); ?>
+		<div class="site-info row">
+			<div class="social-sharing columns-12">
+				<?php if(have_rows('social_media', 'options')): ?>
+					<ul class="social-media">
+					<?php while(have_rows('social_media', 'options')): the_row(); ?>
+
+						<li>
+							<?php $link = get_sub_field('link'); ?>
+							<?php $logo = get_sub_field('social_media');  ?>
+							<a href="<?php echo $link; ?>" target="_blank"><i class="fa fa-<?php echo $logo; ?>"  aria-hidden="true"></i></a>
+
+						</li>
+
+					<?php endwhile; ?>
+				</ul>
+				<?php endif; ?>
+			</div>
+
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
