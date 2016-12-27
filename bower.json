@@ -1,0 +1,14 @@
+{
+  "name": "gta-starter-theme",
+  "authors": [
+    "Flynn O'Connor"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+	  "slick-carousel": "*",
+	  "select2": "^4.0.3",
+	  "fancybox": "*",
+	  "isotop": "*",
+  }
+}
