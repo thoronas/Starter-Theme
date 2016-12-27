@@ -9,6 +9,6 @@
 	  "slick-carousel": "*",
 	  "select2": "^4.0.3",
 	  "fancybox": "*",
-	  "isotop": "*",
+	  "isotope": "*"
   }
 }
