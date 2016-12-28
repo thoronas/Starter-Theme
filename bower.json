@@ -7,8 +7,12 @@
   "private": true,
   "dependencies": {
 	  "slick-carousel": "*",
-	  "select2": "^4.0.3",
-	  "fancybox": "*",
-	  "isotope": "*"
+	  "fancybox": "*"
+  },
+  "overrides": {
+	  "slick-carousel": {
+		"dependencies": {}
+	  }
   }
+
 }
