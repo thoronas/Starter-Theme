@@ -6,9 +6,18 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-	  "slick-carousel": "*",
-	  "select2": "^4.0.3",
-	  "fancybox": "*",
-	  "isotope": "*"
+    "slick-carousel": "*",
+    "fancybox": "*",
+    "font-awesome": "^4.7.0"
+  },
+  "overrides": {
+    "slick-carousel": {
+      "dependencies": {}
+    },
+    "fontawesome": {
+	  "main": [
+	    "./scss/font-awesome.scss"
+	  ]
+    }
   }
 }

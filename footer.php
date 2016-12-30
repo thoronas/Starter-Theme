@@ -30,6 +30,8 @@
 					<?php endwhile; ?>
 				</ul>
 				<?php endif; ?>
+				<a href="<?php echo "#"; ?>" target="_blank"><i class="fa fa-twitter"  aria-hidden="true"></i></a>
+
 			</div>
 
 		</div><!-- .site-info -->
