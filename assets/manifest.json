@@ -9,7 +9,7 @@
     "main.css": {
       "files": [
         "styles/main.scss"
-      ],
+	  ],
       "main": true
     }
   }

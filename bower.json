@@ -7,17 +7,20 @@
   "private": true,
   "dependencies": {
     "slick-carousel": "*",
-    "fancybox": "*",
+    "fancybox": "^2.1.5",
     "font-awesome": "^4.7.0"
   },
   "overrides": {
     "slick-carousel": {
       "dependencies": {}
     },
+	"fancybox": {
+	  "dependencies": {}
+	},
     "fontawesome": {
-	  "main": [
-	    "./scss/font-awesome.scss"
-	  ]
+      "main": [
+        "./scss/font-awesome.scss"
+      ]
     }
   }
 }

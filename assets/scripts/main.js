@@ -37,14 +37,15 @@
 			$(this).siblings('.sub-menu').stop(true, true).slideToggle(200);
 		});
 
-		// $('.fancybox').fancybox({
-		// 	openEffect  : 'none',
-		// 	closeEffect : 'none',
-		// 	helpers : {
-		// 		media : {}
-		// 	}
-		// });
-		console.log('init');
+		$('.slider').slick();
+		console.log('flynn');
+		$('.fancybox').fancybox({
+			openEffect  : 'none',
+			closeEffect : 'none',
+			helpers : {
+				media : {}
+			}
+		});
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

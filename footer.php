@@ -31,7 +31,15 @@
 				</ul>
 				<?php endif; ?>
 				<a href="<?php echo "#"; ?>" target="_blank"><i class="fa fa-twitter"  aria-hidden="true"></i></a>
-
+				<li><a class="fancybox" href="http://www.youtube.com/watch?v=opj24KnzrWo">Youtube</a></li>
+				<li><a class="fancybox" href="#test">Inline</a></li>
+				<div id="test">
+					<h1>hello world</h1>
+				</div>
+				<div class="slider">
+					<div><h1>Slide one</h1></div>
+					<div><h1>Slide two</h1></div>
+				</div>
 			</div>
 
 		</div><!-- .site-info -->
