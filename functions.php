@@ -103,20 +103,15 @@ add_action( 'widgets_init', 'crew_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function crew_theme_scripts() {
-	wp_enqueue_style( 'fancybox-css', get_template_directory_uri().'/css/jquery.fancybox.css' );
 
 	wp_enqueue_style( 'crew-theme-style', get_template_directory_uri().'/dist/styles/main.css' );
 
 	wp_enqueue_script('jquery');
 
 	// wp_enqueue_script( 'crew-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	// wp_enqueue_script( 'crew-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'main-scripts', get_template_directory_uri().'/dist/scripts/main.js', array(), '20170101', true );
-
-	// wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.js', array(), '20160915', true );
-	// wp_enqueue_script( 'fancybox-media', get_template_directory_uri() . '/js/jquery.fancybox-media.js', array(), '20160915', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'crew_theme_scripts' );
@@ -124,9 +119,6 @@ add_action( 'wp_enqueue_scripts', 'crew_theme_scripts' );
 // Add ACF options pages
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
-	acf_add_options_sub_page('Callouts');
-	acf_add_options_sub_page('Footer');
-
 }
 
 /**
