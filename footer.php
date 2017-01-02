@@ -30,14 +30,7 @@
 					<?php endwhile; ?>
 				</ul>
 				<?php endif; ?>
-				<li><a class="fancybox" href="http://www.youtube.com/watch?v=opj24KnzrWo">Youtube</a></li>
-				<li><a class="fancybox" href="#test">Inline</a></li>
-				<div id="test">
-					<h1>hello world</h1>
-				</div>
-
 			</div>
-
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
