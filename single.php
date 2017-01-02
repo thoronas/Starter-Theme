@@ -27,12 +27,12 @@ get_header(); ?>
 
 		endwhile; // End of the loop.
 		?>
-	</div>
-	<div class="columns-4">
-		<?php get_sidebar(); ?>
-	</div>
-</div>
-</main><!-- #main -->
+			</div>
+			<div class="columns-4">
+				<?php get_sidebar(); ?>
+			</div>
+		</div>
+	</main><!-- #main -->
 </div><!-- #primary -->
 
 <?php

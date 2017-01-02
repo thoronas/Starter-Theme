@@ -23,8 +23,8 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'crew-theme' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
+	<header id="masthead" class="site-header row" role="banner">
+		<div class="site-branding columns-4">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-logo"><?php bloginfo( 'name' ); ?></a>
 		</div><!-- .site-branding -->
 
@@ -34,7 +34,7 @@
 			<span></span>
 		</a>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
+		<nav id="site-navigation" class="main-navigation columns-8" role="navigation">
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->

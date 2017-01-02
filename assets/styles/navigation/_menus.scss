@@ -6,8 +6,8 @@
 	height: 55px;
 	background: #000;
 	padding-top: 7px;
+	display: none;
 
-	// z-index: 12;
 	position: absolute;
 	top: 20px;
 	right: 20px;
@@ -132,7 +132,7 @@
 		}
 	}
 }
-@media screen and (max-width:767px){
+@media screen and (max-width:$med){
 
 	.burger-trigger {
 		display: block;
