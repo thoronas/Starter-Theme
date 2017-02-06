@@ -177,11 +177,17 @@ gulp.task('styles', ['wiredep'], function() {
       });
     }
     merged.add(gulp.src(dep.globs, {base: 'styles'})
+      .pipe(plumber({errorHandler: onError}))
       .pipe(cssTasksInstance));
   });
   return merged
     .pipe(writeToManifest('styles'));
 });
+var onError = function (err) {
+    console.log(err.toString());
+    this.emit('end');
+};
+
 
 // ### Scripts
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
