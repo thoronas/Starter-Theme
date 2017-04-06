@@ -1,0 +1,3 @@
+[submodule "image-processing-queue"]
+    path = image-processing-queue
+    url = git@github.com:deliciousbrains/wp-image-processing-queue.git

@@ -142,6 +142,11 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Load Image Processing Queue
+ */
+require_once get_template_directory() . '/image-processing-queue/image-processing-queue.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
