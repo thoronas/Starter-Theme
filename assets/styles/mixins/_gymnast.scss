@@ -277,3 +277,21 @@ $gutter: 20px;
 .inline-block-grid {
 	@include inline-block-grid();
 }
+
+@media screen and (max-width: $med) {
+
+	[class*="columns-"] {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	[class*="right-"],
+	[class*="left-"] {
+		left: 0;
+		right: 0;
+	}
+
+}
+@media screen and (max-width: $sml) {
+
+}

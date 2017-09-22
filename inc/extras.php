@@ -6,7 +6,7 @@
  *
  * @package Crew_Theme
  */
-
+ 
 /**
  * Adds custom classes to the array of body classes.
  *
@@ -24,6 +24,12 @@ function crew_theme_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	// Add page slug if it doesn't exist
+    if (is_single() || is_page() && !is_front_page()) {
+      if (!in_array(basename(get_permalink()), $classes)) {
+        $classes[] = basename(get_permalink());
+      }
+    }
 	return $classes;
 }
 add_filter( 'body_class', 'crew_theme_body_classes' );

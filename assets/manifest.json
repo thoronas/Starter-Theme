@@ -2,14 +2,17 @@
   "dependencies": {
     "main.js": {
       "files": [
+		"scripts/jquery.fancybox.js",
+		"scripts/jquery.fancybox-media.js",
         "scripts/main.js"
       ],
       "main": true
     },
     "main.css": {
       "files": [
-        "styles/main.scss"
-      ],
+        "styles/main.scss",
+		"jquery.fancybox.css"
+	  ],
       "main": true
     }
   }

@@ -27,40 +27,23 @@
 			$('body').toggleClass('custom-overflow');
 		});
 
-		$("#mobile-nav > li").find('.sub-menu').parent().children('a').after('<span class="menu-slide"></span>');
+		$('.slider').slick();
 
-		$("#mobile-nav > li .menu-slide").on('click',function(e){
-			$(this).toggleClass('open');
-			e.preventDefault();
-			e.stopPropagation();
-
-			$(this).siblings('.sub-menu').stop(true, true).slideToggle(200);
+		$('.fancybox').fancybox({
+			openEffect  : 'none',
+			closeEffect : 'none',
+			helpers : {
+				media : {}
+			}
 		});
-
-		// $('.fancybox').fancybox({
-		// 	openEffect  : 'none',
-		// 	closeEffect : 'none',
-		// 	helpers : {
-		// 		media : {}
-		// 	}
-		// });
-		console.log('init');
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
       }
     },
-    // Home page
-    'home': {
-      init: function() {
-        // JavaScript to be fired on the home page
-      },
-      finalize: function() {
-        // JavaScript to be fired on the home page, after the init JS
-      }
-    },
+
     // About us page, note the change from about-us to about_us.
-    'about_us': {
+    'page_template_page_about': {
       init: function() {
         // JavaScript to be fired on the about us page
       }
