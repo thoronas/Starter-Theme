@@ -120,3 +120,65 @@ function crew_theme_category_transient_flusher() {
 }
 add_action( 'edit_category', 'crew_theme_category_transient_flusher' );
 add_action( 'save_post',     'crew_theme_category_transient_flusher' );
+
+/**
+ * Secondary Query Pagination.
+ * If no WP_Query object is passed to the function it will use the main $wp_query global.
+ */
+if ( ! function_exists( 'gta_page_navi' ) ) :
+
+	// Numeric Page Navi (built into the theme by default)
+	function gta_page_navi($before = '', $after = '', $prev_text = '', $next_text = '', $query = '') {
+		if($query == ''){
+			global $wpdb, $wp_query;
+			$query = $wp_query;
+		}
+		$request = $query->request;
+		$posts_per_page = intval($query->query_vars['posts_per_page']);
+		$paged = intval(get_query_var('paged'));
+		$numposts = $query->found_posts;
+		$max_page = $query->max_num_pages;
+		if ( $numposts <= $posts_per_page ) { return; }
+		if(empty($paged) || $paged == 0) {
+			$paged = 1;
+		}
+		$pages_to_show = 7;
+		$pages_to_show_minus_1 = $pages_to_show-1;
+		$half_page_start = floor($pages_to_show_minus_1/2);
+		$half_page_end = ceil($pages_to_show_minus_1/2);
+		$start_page = $paged - $half_page_start;
+		if($start_page <= 0) {
+			$start_page = 1;
+		}
+		$end_page = $paged + $half_page_end;
+		if(($end_page - $start_page) != $pages_to_show_minus_1) {
+			$end_page = $start_page + $pages_to_show_minus_1;
+		}
+		if($end_page > $max_page) {
+			$start_page = $max_page - $pages_to_show_minus_1;
+			$end_page = $max_page;
+		}
+		if($start_page <= 0) {
+			$start_page = 1;
+		}
+
+		echo $before.'<ul class="pagination clearfix">'."";
+
+		echo '<li class="">';
+		previous_posts_link('<span class="prev-nav">'.$prev_text.'</span>', $query);
+		echo '</li>';
+		for($i = $start_page; $i  <= $end_page; $i++) {
+			if($i == $paged) {
+				echo '<li class="current">'.$i.'</li>';
+			} else {
+				echo '<li><a href="'.get_pagenum_link($i).'">'.$i.'</a></li>';
+			}
+		}
+		echo '<li class="">';
+		next_posts_link('<span class="next-nav">'.$next_text.'</span>', $query->max_num_pages);
+		echo '</li>';
+
+		echo '</ul>'.$after."";
+	}
+
+endif;
