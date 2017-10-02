@@ -1,0 +1,174 @@
+// ----- body styles
+body {
+	color: $maintext;
+	@include font-size(16);
+	overflow-x: hidden;
+	position: relative;
+	margin: 0;
+	// &.stop-scrolling {
+	// 	height: 100%;
+	// 	overflow: hidden;
+	// }
+}
+
+::selection {
+	background: $color__main;
+	color: white;
+}
+
+::-moz-selection {
+	background: $color__main;
+	color: white;
+}
+
+
+// ----- headings
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	margin: 0;
+}
+h1 {
+	@include font-size(48);
+	line-height: 60px;
+	padding-bottom: 25px;
+}
+h2 {
+	@include font-size(42);
+	padding-bottom: 25px;
+}
+h3 {
+	@include font-size(36);
+	padding-bottom: 25px;
+}
+h4 {
+	@include font-size(28);
+	padding-bottom: 25px;
+}
+h5 {
+	@include font-size(24);
+	padding-bottom: 25px;
+}
+h6 {
+	@include font-size(20);
+	padding-bottom: 25px;
+}
+
+
+// ----- links
+a {
+	text-decoration: underline;
+	color: #555555;
+	&:hover,
+	&:active {
+		opacity: 0.6;
+	}
+}
+
+
+// ----- paragraphs
+p {
+	@include font-size(16);
+	margin: 0;
+	padding-bottom: 15px;
+}
+
+strong {
+	font-weight: 700;
+}
+
+em {
+	font-style: italic;
+}
+
+
+// ----- images 
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+
+// ----- lists
+ul, ol {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0;
+}
+
+
+// ----- and the rest
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	// background: $color__background-pre;
+	// font-family: $font__pre;
+	@include font-size(0.9375);
+	// line-height: $font__line-height-pre;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code, kbd, tt, var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr, acronym {
+	cursor: help;
+}
+
+mark, ins {
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+hr {
+	background-color: $maintext;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}

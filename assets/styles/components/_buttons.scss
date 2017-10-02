@@ -1,0 +1,47 @@
+%button-base {
+	@include ease;
+	@include font-size(16);
+	border-radius: 50px;
+	border-style: solid;
+	border-width: 3px;
+	display: inline-block;
+	font-weight: 700;
+	padding: 21px 37px;
+	text-decoration: none;
+	text-transform: uppercase;
+	// &.gf_submit {
+	// 	padding: 21px 90px;
+	// }
+}
+
+@mixin button($color:red) {
+	@extend %button-base;
+
+	@if $color == orange {
+		background: $red;
+		border-color: $red;
+		color: white;
+		&:hover {
+			background: white;
+			color: $red;
+		}
+	}
+
+	@if $color == white {
+		background: white;
+		border-color: white;
+		color: $red;
+		&:hover {
+			background: $red;
+			color: white;
+		}
+	}
+}
+
+.button {
+	@include button;
+}
+
+.button-white {
+	@include button(white);
+}

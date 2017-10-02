@@ -1,0 +1,61 @@
+html{
+	box-sizing: border-box;
+	&.wf-loading,
+	&.wf-active{
+		background: white;
+	}
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	transition: opacity .5s;
+	background: white;//
+
+	.wf-loading & {
+		opacity: 0;
+	}
+	.wf-active & {
+		background: white;//
+		opacity: 1;
+	}
+
+	&.no-scroll{
+		overflow: hidden;
+	}
+	.s-hidden {
+		display: none;
+	}
+}
+
+
+.s-transition {
+	@include transition(.5s);
+}
+
+
+.slick-slide{
+	outline: none;
+}
+
+
+.slick-slider{
+	margin: 0;
+}
+
+
+.featherlight .featherlight-content{
+	padding: 0;
+	max-width: 90%;
+	margin: 0;
+	border: none;
+
+	video{
+		max-width: 100%;
+		max-height: 90vh;
+	}
+}
