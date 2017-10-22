@@ -1,0 +1,598 @@
+///////////////////////////
+//////     FORMS     //////
+///////////////////////////
+
+:-moz-placeholder { /* Firefox 18- */
+	// color: red;  
+}
+
+
+:-ms-input-placeholder {  
+	// color: red;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	// color: red;  
+}
+
+::-webkit-input-placeholder {
+	// color: red;
+}
+
+form {
+	label {
+		// color: ;
+		text-transform: uppercase;
+	}
+	
+	input[type="text"], 
+	input[type="url"],
+	input[type="email"], 
+	input[type="tel"], 
+	input[type="number"], 
+	input[type="password"],
+	// input[type="search"],
+	textarea {
+		@include ease;
+		@include inner-shadow(0,2px,4px,0.2);
+		@include rounded(4px);
+		// background: ;
+		border: none;
+		font-size:1em;
+		padding: 5px 10px;
+		
+		&:hover {
+			// background: ;
+			// color: ;
+		}
+		
+		&:focus {
+			// background: ;
+			// color: ;
+		}
+	}
+	input[type=submit],
+	input[type=button]{
+		@include button();
+	}
+}
+
+
+///////////////////////////////////////////////
+//////    GRAVITY FORMS RESET STYLES     //////
+///////////////////////////////////////////////
+
+// If you use these styles, you must go to the Gravity Forms settings in the WordPress back end and set Output CSS to No.
+
+////----- Core Containers
+.gform_heading,
+.gform_body,
+.gform_footer {
+	clear: both;
+	padding-bottom: 20px;
+}
+
+////----- Fields Container
+ul.gform_fields {
+	list-style: none;
+	margin: 0 -15px;
+	padding: 0;
+}
+
+////----- Field Containers and their Contents
+li.gfield {
+	clear: both;
+	// overflow: auto;
+	overflow: inherit;
+	padding: 0 $gutter 20px;
+}
+.ginput_container {
+	span {
+		margin-bottom: 10px;
+	}
+	input,
+	select,
+	textarea {
+		&.large {
+			width: 100%;
+		}
+		&.medium {
+			width: 66%;
+		}
+		&.small {
+			width: 33%;
+		}
+	}
+
+	input, 
+	textarea {
+		margin: 2px;
+	}
+}
+label.gfield_label {
+	display: inline-block;
+	padding-bottom: 10px;
+	.left_label & {
+		float: left;
+		width: 25%;
+	}
+	.right_label & {
+		float: right;
+		width: 25%;
+	}
+}
+
+.gfield_required {
+	padding-left: 5px;
+}
+
+////----- Checkboxes and Radios
+ul.gfield_checkbox,
+ul.gfield_radio {
+	list-style: none;
+	padding: 0;
+	input {
+		margin-right: 10px;
+		position: relative;
+		top: -1px;
+	}
+}
+ul.gfield_radio {
+	input {
+		margin-left: 2px;
+	}
+}
+
+////----- Section Break
+.gsection {
+	h2 {
+		border-bottom: 3px solid black;
+		padding-bottom: 15px;
+	}
+}
+
+////----- Page Break
+.gf_progressbar_wrapper {
+	padding-bottom: 15px;
+}
+.gf_progressbar {
+	background: gray;
+}
+.gf_progressbar_percentage {
+	background: red;
+	padding: 5px 10px;
+	text-align: right;
+}
+
+////----- Time Field
+.gfield_time_hour, .gfield_time_minute, .gfield_time_ampm {
+	display: inline;
+	display: inline-block;
+}
+.gfield_time_hour, .gfield_time_minute {
+	label {
+		display: block;
+	}
+}
+.gfield_time_ampm {
+	vertical-align: top;
+}
+
+////----- Hidden Fields
+.gform_hidden {
+	display: none;
+}
+
+.gf_clear {
+	clear: both;
+}
+
+////----- Validation and Errors
+.validation_error {
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+
+li.gfield {
+	&.gfield_error {
+		background: #FFDFE0;
+		margin-bottom: 15px;
+		padding-top: 15px;
+		label.gfield_label {
+			font-weight: bold;
+		}
+	}
+	&.gfield_contains_required {
+
+	}
+	.validation_message {
+		font-weight: bold;
+		margin-top: 10px;
+	}
+}
+
+.gform_validation_container {
+	display: none;
+}
+
+////----- CSS Ready Classes
+.ginput_full {
+	display: block;
+	input, select, textarea {
+		margin-bottom: 5px;
+		width: 100%;
+	}
+	label {
+		display: block;
+	}
+}
+.ginput_left {
+	float: left;
+	padding-right: $gutter;
+	width: 50%;
+	input, select, textarea {
+		margin-bottom: 5px;
+		width: 100%;
+	}
+	label {
+		display: block;
+	}
+}
+.ginput_right {
+	float: right;
+	width: 50%;
+	input, select, textarea {
+		margin-bottom: 5px;
+		width: 100%;
+	}
+	label {
+		display: block;
+	}
+}
+.ginput_right {
+	float: right;
+	width: 50%;
+}
+
+//----- Layout Columns
+li.gf_left_half {
+	clear: none;
+	float: left;
+	padding-right: $gutter;
+	padding-bottom: 10px;
+	width: 50%;
+}
+li.gf_right_half {
+	clear: none;
+	float: right;
+	padding-bottom: 10px;
+	width: 50%;
+}
+li.gf_left_third {
+	clear: none;
+	float: left;
+	padding-right: $gutter;
+	padding-bottom: 10px;
+	width: 33%;
+}
+li.gf_middle_third {
+	clear: none;
+	float: left;
+	padding-right: $gutter;
+	padding-bottom: 10px;
+	width: 34%;
+}
+li.gf_right_third {
+	clear: none;
+	float: right;
+	padding-bottom: 10px;
+	width: 33%;
+}
+li.gf_first_quarter {
+	clear: none;
+	float: left;
+	padding-right: $gutter;
+	padding-bottom: 10px;
+	width: 25%;
+}
+li.gf_second_quarter {
+	clear: none;
+	float: left;
+	padding-right: $gutter;
+	padding-bottom: 10px;
+	width: 25%;
+}
+li.gf_third_quarter {
+	clear: none;
+	float: left;
+	padding-bottom: 10px;
+	width: 25%;
+}
+li.gf_fourth_quarter {
+	clear: none;
+	float: right;
+	padding-bottom: 10px;
+	width: 25%;
+}
+
+@media screen and (max-width:480px){
+	li {
+		&.gf_left_half,
+		&.gf_right_half,
+		&.gf_left_third,
+		&.gf_middle_third,
+		&.gf_right_third,
+		&.gf_first_quarter,
+		&.gf_second_quarter,
+		&.gf_third_quarter,
+		&.gf_fourth_quarter {
+			width: 100%;
+		}
+	}
+}
+
+//----- List Columns
+.gf_list_2col {
+	ul.gfield_checkbox,
+	ul.gfield_radio {
+		li {
+			float: left;
+			padding-bottom: 10px;
+			width: 50%;
+		}
+	}
+}
+.gf_list_3col {
+	ul.gfield_checkbox,
+	ul.gfield_radio {
+		li {
+			float: left;
+			padding-bottom: 10px;
+			width: 33%;
+		}
+	}
+}
+.gf_list_4col {
+	ul.gfield_checkbox,
+	ul.gfield_radio {
+		li {
+			float: left;
+			padding-bottom: 10px;
+			width: 25%;
+		}
+	}
+}
+.gf_list_5col {
+	ul.gfield_checkbox,
+	ul.gfield_radio {
+		li {
+			float: left;
+			padding-bottom: 10px;
+			width: 20%;
+		}
+	}
+}
+.gf_list_inline {
+	ul.gfield_checkbox,
+	ul.gfield_radio {
+		li {
+			display: inline-block;
+			padding-right: $gutter;
+			padding-bottom: 10px;
+		}
+	}
+}
+
+@media screen and (max-width:480px){
+	.gf_list_2col,
+	.gf_list_3col,
+	.gf_list_4col,
+	.gf_list_5col {
+		ul.gfield_checkbox,
+		ul.gfield_radio {
+			li {
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+.custom_checkboxes {
+
+	.gfield_checkbox {
+		margin-left: 0;
+	}
+
+	input[type="checkbox"] {
+		display: none;
+
+		+ label {
+			position: relative;
+			padding-left: 20px;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				height: 15px;
+				width: 15px;
+				background: $maintext;
+				margin-right: 13px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				padding-left: 2px;
+				@include line-height(16);
+				overflow: hidden;
+			}
+
+			span {
+				display: block;
+				margin-left: 20px;
+
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		&:checked {
+
+			+ label {
+
+				&:before {
+					content: '✓';
+					color: $color__main;
+				}
+			}
+		}
+	}
+}
+
+////----- Date Picker
+.ui-datepicker {
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	font: 9pt Arial,sans-serif;
+	height: auto;
+	margin: 5px auto 0;
+	width: 216px;
+}
+.ui-datepicker a {
+	text-decoration: none;
+}
+.ui-datepicker table {
+	border-collapse: collapse;
+	width: 100%;
+}
+.ui-datepicker-header {
+	background-color: #666;
+	border-color: #666;
+	border-style: solid;
+	border-width: 1px 0 0;
+	box-shadow: 0 1px 1px 0 rgba(250, 250, 250, 0.2) inset;
+	color: #e0e0e0;
+	font-weight: bold;
+	line-height: 30px;
+	min-height: 30px !important;
+	text-shadow: 1px -1px 0 #000;
+}
+.ui-datepicker-title {
+	text-align: center;
+}
+.ui-datepicker-title select {
+	margin-top: 2.5%;
+}
+.ui-datepicker-prev, .ui-datepicker-next {
+	cursor: pointer;
+	display: inline-block;
+	height: 30px;
+	line-height: 600%;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	width: 30px;
+}
+.ui-datepicker-prev,
+.ui-datepicker-next {
+	&:before {
+		border-color: transparent #e0e0e0;
+		border-style: solid;
+		content: '';
+		position: absolute;
+		top: 30%;
+		transform: scale(1.001);
+	}
+}
+.ui-datepicker-prev {
+	float: left;
+	&:before {
+		border-width: 5px 10px 5px 0;
+		left: 40%;
+	}
+}
+.ui-datepicker-next {
+	float: right;
+	&:before {
+		border-width: 5px 0 5px 10px;
+		right: 40%;
+	}
+}
+.ui-datepicker thead {
+	background: linear-gradient(to bottom, #f7f7f7 0%, #f1f1f1 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	border-bottom: 1px solid #bbb;
+}
+.ui-datepicker th {
+	color: #666666;
+	font-size: 6pt;
+	padding: 5px 0;
+	text-align: center;
+	text-shadow: 1px 0 0 #fff;
+	text-transform: uppercase;
+}
+.ui-datepicker tbody td {
+	border-right: 1px solid #bbb;
+	border-top: 1px solid #bbb;
+	padding: 0;
+}
+.ui-datepicker tbody td:last-child {
+	border-right: 0 none;
+}
+.ui-datepicker tbody tr {
+	border-bottom: 1px solid #bbb;
+}
+.ui-datepicker tbody tr:last-child {
+	border-bottom: 0 none;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+	color: #666666;
+	display: inline-block;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	text-shadow: 1px 1px 0 #fff;
+	width: 30px;
+}
+.ui-datepicker-calendar .ui-state-default {
+	background: linear-gradient(to bottom, #ededed 0%, #dedede 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	box-shadow: 1px 1px 0 0 rgba(250, 250, 250, 0.5) inset;
+}
+.ui-datepicker-calendar .ui-state-hover {
+	background: none repeat scroll 0 0 #f7f7f7;
+}
+.ui-datepicker-calendar .ui-state-active {
+	background: none repeat scroll 0 0 #fff2aa;
+	border: 1px solid #c19163;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1) inset;
+	color: #666;
+	margin: -1px;
+	position: relative;
+	text-shadow: 0 1px 0 #fff;
+}
+.ui-datepicker-unselectable .ui-state-default {
+	background: none repeat scroll 0 0 #f4f4f4;
+	color: #b4b3b3;
+}
+.ui-datepicker-calendar td:first-child .ui-state-active {
+	margin-left: 0;
+	width: 29px;
+}
+.ui-datepicker-calendar td:last-child .ui-state-active {
+	margin-right: 0;
+	width: 29px;
+}
+.ui-datepicker-calendar tr:last-child .ui-state-active {
+	height: 29px;
+	margin-bottom: 0;
+}
+td.ui-datepicker-unselectable.ui-state-disabled {
+	background-color: #d7d7d7;
+}
+table.ui-datepicker-calendar {
+	margin: 0 !important;
+}
+body div#ui-datepicker-div[style] {
+	z-index: 9999 !important;
+}

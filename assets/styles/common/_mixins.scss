@@ -1,0 +1,312 @@
+// Rem output with px fallback
+@mixin font-size( $fontSize:16, $baseSize: 16) {
+	font-size: #{$fontSize}px;
+	font-size: #{($fontSize/$baseSize)}rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+@mixin button(){
+	@include proxima();
+	font-weight: 800;
+	background: none;
+	box-shadow: none;
+	padding: 11px 45px;
+	text-transform: uppercase;
+	text-shadow: none;
+	text-decoration: none;
+	letter-spacing: 1px;
+	border-radius: 10px;
+	&:hover {
+		color: #fff;
+
+	}
+}
+
+// ----- Borders ----- //
+
+@mixin rounded($radius: 2px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+
+// ----- Colours ----- //
+// Add white to a color
+@function tint($color, $percent){
+	@return mix(white, $color, $percent);
+}
+
+// Add black to a color
+@function shade($color, $percent){
+	@return mix(black, $color, $percent);
+}
+
+
+
+// ----- Gradients ----- //
+@mixin gradient($color: #F5F5F5, $start: #EEE, $stop: #FFF) {
+	background: $color;
+	background: -webkit-gradient(linear,
+				left bottom,
+				left top,
+				color-stop(0, $start),
+				color-stop(1, $stop));
+	background: -ms-linear-gradient(bottom,
+				$start,
+				$stop);
+	background: -moz-linear-gradient(center bottom,
+				$start 0%,
+				$stop 100%);
+}
+
+
+// ----- Images ----- //
+@mixin hidpi($ratio: 1.3) {
+	@media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+	only screen and (min--moz-device-pixel-ratio: $ratio),
+	only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
+	only screen and (min-resolution: #{round($ratio*96)}dpi),
+	only screen and (min-resolution: #{$ratio}dppx) {
+		@content;
+	}
+}
+@mixin background-cover() {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+@mixin retina-image($filename, $background-size, $extension: png, $retina-filename: null, $retina-suffix: _2x, $asset-pipeline: false) {
+	@if $asset-pipeline {
+		background-image: image-url("#{$filename}.#{$extension}");
+	}
+	@else {
+		background-image: url("#{$filename}.#{$extension}");
+	}
+
+	@include hidpi {
+		@if $asset-pipeline {
+			@if $retina-filename {
+				background-image: image-url("#{$retina-filename}.#{$extension}");
+			}
+			@else {
+				background-image: image-url("#{$filename}#{$retina-suffix}.#{$extension}");
+			}
+		}
+
+		@else {
+			@if $retina-filename {
+				background-image: url("#{$retina-filename}.#{$extension}");
+				}
+			@else {
+				background-image: url("#{$filename}#{$retina-suffix}.#{$extension}");
+			}
+		}
+
+		background-size: $background-size;
+	}
+}
+
+
+// ----- Layout ----- //
+
+// @mixin clearfix {
+// 	zoom: 1;
+// 	&:before {
+// 		content: '';
+// 		display: block;
+// 	}
+// 	&:after {
+// 		content: '';
+// 		display: table;
+// 		clear: both;
+// 	}
+// }
+
+@mixin boxmodel {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin text-columns($colwidth: 250px, $colcount: 0, $colgap: 50px, $columnRuleColor: #EEE, $columnRuleStyle: solid, $columnRuleWidth: 1px) {
+	-moz-column-width: $colwidth;
+	-moz-column-count: $colcount;
+	-moz-column-gap: $colgap;
+	-moz-column-rule-color: $columnRuleColor;
+	-moz-column-rule-style: $columnRuleStyle;
+	-moz-column-rule-width: $columnRuleWidth;
+	-webkit-column-width: $colwidth;
+	-webkit-column-count: $colcount;
+	-webkit-column-gap: $colgap;
+	-webkit-column-rule-color: $columnRuleColor;
+	-webkit-column-rule-style: $columnRuleStyle;
+	-webkit-column-rule-width: $columnRuleWidth;
+	column-width: $colwidth;
+	column-count: $colcount;
+	column-gap: $colgap;
+	column-rule-color: $columnRuleColor;
+	column-rule-style: $columnRuleStyle;
+	column-rule-width: $columnRuleWidth;
+}
+
+
+// ----- Shadows ----- //
+
+@mixin drop-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $alpha: 0.1) {
+	-webkit-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+	-moz-box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+	box-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+}
+
+@mixin inner-shadow($horizontal:0, $vertical:1px, $blur:2px, $alpha: 0.4) {
+	-webkit-box-shadow: inset $horizontal $vertical $blur rgba(0, 0, 0, $alpha);
+	-moz-box-shadow: inset $horizontal $vertical $blur rgba(0, 0, 0, $alpha);
+	box-shadow: inset $horizontal $vertical $blur rgba(0, 0, 0, $alpha);
+}
+
+@mixin opacity($opacity: 0.5) {
+	-moz-opacity: $opacity;
+	-khtml-opacity: $opacity;
+	-webkit-opacity: $opacity;
+	opacity: $opacity;
+}
+
+
+// ----- Text ----- //
+
+@mixin line-height( $lineSize:16, $baseSize: 16) {
+	line-height: #{$lineSize}px;
+	// line-height: #{($lineSize/$baseSize)}rem;
+}
+
+@mixin text-shadow($x-axis: 0, $y-axis: 1px, $blue: 2px, $alpha: 0.1) {
+	text-shadow: $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+}
+
+
+// ----- Transitions ----- //
+
+@mixin ease ($dur:0.5s) {
+	-webkit-transition: $dur ease;
+	-moz-transition: $dur ease;
+	-o-transition: $dur ease;
+	transition: $dur ease;
+}
+
+@mixin rotation($deg:5deg){
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+@mixin transition-duration($duration: 0.2s) {
+	-moz-transition-duration: $duration;
+	-webkit-transition-duration: $duration;
+	transition-duration: $duration;
+}
+
+@mixin scale($ratio:1.5){
+	-webkit-transform:scale($ratio);
+	-moz-transform:scale($ratio);
+	transform:scale($ratio);
+}
+
+@mixin scale3d($x:0, $y:0, $z:0) {
+	-webkit-transform:scale3d($x,$y,$z);
+	-moz-transform:scale3d($x,$y,$z);
+	transform:scale3d($x,$y,$z);
+}
+
+@mixin transition($duration:0.2s, $ease:ease-out) {
+	-webkit-transition: all $duration $ease;
+	-moz-transition: all $duration $ease;
+	transition: all $duration $ease;
+}
+
+@mixin translate($x:0, $y:0) {
+	-moz-transform: translate($x, $y);
+	-webkit-transform: translate($x, $y);
+	-o-transform: translate($x, $y);
+	-ms-transform: translate($x, $y);
+	transform: translate($x, $y);
+}
+
+@mixin origin($x:0, $y:0, $z:0) {
+	-ms-transform-origin: $x $y $z;
+	-webkit-transform-origin: $x $y $z;
+	transform-origin: $x $y $z;
+}
+
+
+// ----- Video ----- //
+
+// We use these to control video container padding and margins
+$flex-video-padding-top: emCalc(25px) !default;
+$flex-video-padding-bottom: 67.5% !default;
+$flex-video-margin-bottom: emCalc(16px) !default;
+
+// We use this to control widescreen bottom padding
+$flex-video-widescreen-padding-bottom: 57.25% !default;
+
+// Flex Video Mixins
+@mixin flex-video-container {
+	position: relative;
+	padding-top: $flex-video-padding-top;
+	padding-bottom: $flex-video-padding-bottom;
+	height: 0;
+	margin-bottom: $flex-video-margin-bottom;
+	overflow: hidden;
+
+	&.widescreen {
+		padding-bottom: $flex-video-widescreen-padding-bottom;
+	}
+	&.vimeo {
+		padding-top: 0;
+	}
+	iframe,
+	object,
+	embed,
+	video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	iframe:not(.twitter-tweet) {
+		height: 100%;
+	}
+}
+
+// Flex Video
+.flex-video {
+	@include flex-video-container;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}

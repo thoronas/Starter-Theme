@@ -1,0 +1,35 @@
+// ----- Colors
+$black: #000;
+$red: #e13030;
+
+$maintext: $black;
+
+$color__main: $red;
+
+
+// ----- Media Queries
+$query-size_extra_extra_small: '400px';
+$query-size_extra_small: '600px';
+$query-size_small: '768px';
+$query-size_medium: '950px';
+$query-size_large: '1250px';
+$query-size_full: '1500px';
+
+$xxs-min: "(min-width: " $query-size_extra_extra_small " )" !default;
+$xs-min: "(min-width: " $query-size_extra_small " )" !default;
+$sm-min: "(min-width: " $query-size_small " )" !default;
+$md-min: "(min-width: " $query-size_medium " )" !default;
+$lg-min: "(min-width: " $query-size_large " )" !default;
+$fl-min: "(min-width: " $query-size_full " )" !default;
+
+$xxs-max: "(max-width: " $query-size_extra_extra_small " )" !default;
+$xs-max: "(max-width: " $query-size_extra_small " )" !default;
+$sm-max: "(max-width: " $query-size_small " )" !default;
+$md-max: "(max-width: " $query-size_medium " )" !default;
+$lg-max: "(max-width: " $query-size_large " )" !default;
+$fl-max: "(max-width: " $query-size_full " )" !default;
+
+// example usage
+// @media #{$md-min} {
+// 	width: 100%;
+// }
